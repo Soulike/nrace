@@ -546,30 +546,6 @@ function dfanalyze (args, cb) {
         process.exit(1);
     }
 
-    //console.log('driver: ', exp);
-    //console.log(src, dest);
-    var DebugTool = require('../lib/typeerrorDetect/detect/DebugTool');
-    var debugTool = new DebugTool(appPath);
-    if (eid) {
-        debugTool.getCbChain(eid);
-        return;
-    }
-
-    if (src && dest) {
-        debugTool.getCbPath(src, dest);
-        return; 
-    }
-
-    if (exp) {
-        debugTool.countExperiemtalResult();
-        return;
-    }
-
-    if (cnt) {
-        debugTool.countIdle();
-        return;
-    }
-
     var start_time = new Date().getTime();
     //var Analyzer = require('../lib/typeerrorDetect/detect/TaintAnalyzer');
     var Analyzer = require('../lib/typeerrorDetect/detect/SimpleAnalyzer');
