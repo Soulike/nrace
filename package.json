@@ -44,11 +44,15 @@
     "rimraf": "2.2.8",
     "serve-static": "^1.14.1",
     "sloc": "^0.2.1",
-    "temp": "0.8.1",
+    "temp": "^0.9.4",
     "websocket": "^1.0.30",
     "wrench": "1.5.8"
   },
   "scripts": {
+    "inst": "./bin/noderacer instrument --outputDir /tmp/nraceOutput",
+    "parse": "./bin/noderacer parse -g",
+    "dfanalyze":"./bin/noderacer dfanalyze",
+    "runInst": "node",
     "test": "(cat test/testSuite.txt | sed 's/^/test\\//' | xargs ./node_modules/.bin/mocha --reporter spec --harmony) && cd lifetime-analysis && ./gradlew cleanTest test && cd ..",
     "build": "grunt typescript"
   },
