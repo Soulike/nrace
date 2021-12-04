@@ -42,7 +42,7 @@ execution trace will be collected. The trace is recorded in the file `ascii-trac
 A happens-before graph is built for the collected trace:
 `ascii-trace.log`:
 ```
-$ nrace parse /path/to/instrumented/app
+$ nrace parse -g /path/to/instrumented/app
 ```
 A file named `ascii-trace-hb*` is generated. It represents the
 happens-before graph and consists of information of nodes and edges.
@@ -57,3 +57,7 @@ $ nrace dfanalyze /path/to/instrumented/app
 The bug report contains two parts: detected harmful races and
 identified commutative races. The bug report is output in the
 terminal. We also save the bug report as a json file under the path `/path/to/instrumented/app`.
+
+## Unlocked Version
+
+Modify `lib/typeerrorDetect/traceParser.js:97`, comment or remove `if (lineno <= 14075)` to get NRace-unlocked.
